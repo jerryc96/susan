@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+
+<!--<script src='client/pouchdb.localstorage.js'></script>-->
+
+
+<!--<script src="SQLitePlugin.js"></script>-->
+</head>
+<body>
+<!--<script src="cordova.js"></script>-->
+<script src="node_modules/pouchdb/dist/pouchdb.js"></script>
+<script src="node_modules/pouchdb/dist/pouchdb.idb-alt.js"></script>
+<script src="node_modules/pouchdb/dist/pouchdb.memory.js"></script>
+<script src="js/index.js"></script>
+
+<h1> Local Database</h1>
+<p id="local"></p>
+<h1> Remote DataBase</h1>
+<p id="remote"></p>
+<div>
+<h3>Input Patients</h3>
+<input id="numentries"
+       placeholder="give x number of entries">
+<input id="startid"
+       placeholder="start with id number">
+<div>
+<button onclick="allEntry()">fill entries to local</button>
+<button onclick="allEntryRemote()">fill entries to remote</button>
+</div>
+<p id="preentry">time before data entry: </p>
+<p id="postentry">time after data entry: </p>
+<p id="timetaken">time taken in milliseconds: </p>
+</div>
+<div>
+<h3>Update Patients</h3>
+<input id="_id"
+       placeholder="input patient id">
+<input id="newmeta"
+       placeholder="input new info for metaid">
+    <div>
+    <button onclick="updateLocal()">update patient from local</button>
+    <button name="remote" onclick="updateRemote()">update patient from remote</button>
+    </div>
+<h3> Get Patient</h3>
+    <div>
+    <button onclick="getPatientLocal()">get patient from local</button>
+    <button onclick="getPatientRemote()">gets patient from remote</button>
+    <p id="patient_info">Patient Info: </p>
+    </div>
+<h3> Get All Entries</h3>
+    <div>
+    <button onclick="getAllEntries()">get all entries from local</button>
+    <button onclick="getAllRemote()">gets all entries from remote</button>
+    </div>
+<h3> Wipe Data</h3>
+    <div>
+    <button onclick="nuke()">wipes all data</button>
+    <button onclick="nukeL()">wipe all local data</button>
+    <button onclick="nukeR()">wipes all remote data</button>
+    </div>
+
+<!--
+<button onclick="updatePatientAll()">updates both local and remote simotaneously</button>
+<button onclick="getPatientAll()">get the patient from both databases</button> -->
+<h3>Replicate Data between Databases</h3>
+<button onclick="replicateTo()">replicates data between databases</button>
+<p id="prerep">pre replication time: </p>
+<p id="postrep">post replication time: </p>
+<p id="reptime">replication time taken in milliseconds: </p>
+
+<li>Node.js <script>document.write(process.version)</script></li>
+<li>Electron <script>document.write(process.versions.electron)</script></li>
+<li>PouchDB <script>document.write(PouchDB.version)</script></li>
+
+</body>
+</html>
